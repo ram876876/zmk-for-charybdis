@@ -34,6 +34,14 @@
                 <&macro_wait_time 30>,
                 <&rgb_ug RGB_COLOR_HSB(250,100,50)>;
         };
+
+        mouse_sensivity: mouse_sensivity {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_release>, <&mmv MOVE_X(0) &mmv MOVE_Y(0)>;
+
+            label = "MOUSE_SENSIVITY";
+        };
     };
 
     keymap {
@@ -55,7 +63,7 @@
 &kp F1  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5                  &kp F6     &kp F7  &kp F8  &kp F9  &kp F10  &kp F11
 &trans  &none   &none   &none   &none   &trans                  &none      &none   &none   &none   &none    &none
 &trans  &none   &none   &none   &none   &kp NON_US_BACKSLASH    &kp SLASH  &none   &none   &none   &none    &trans
-&trans  &trans  &trans  &trans  &trans  &none                   &none      &none   &trans  &trans  &none    &trans
+&trans  &trans  &trans  &trans  &trans  &none                   &none      &none   &trans  &trans  &none    &mouse_sensivity
                         &trans  &trans  &To0_macro              &none      &none
                                 &trans  &trans                  &trans
             >;
@@ -63,10 +71,10 @@
 
         BT_layers {
             bindings = <
-&trans  &none   &none   &none   &none   &none        &trans     &trans          &trans        &trans     &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans       &trans     &trans          &kp UP_ARROW  &trans     &trans  &trans
-&trans  &none   &trans  &trans  &trans  &mkp LCLK    &mkp RCLK  &kp LEFT_ARROW  &kp DOWN      &kp RIGHT  &trans  &trans
-&trans  &trans  &trans  &none   &trans  &trans       &none      &trans          &trans        &trans     &trans  &trans
+&trans  &none   &none   &none   &none   &none        &trans     &trans          &trans               &trans     &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans       &trans     &trans          &kp UP_ARROW         &trans     &trans  &trans
+&trans  &none   &trans  &trans  &trans  &mkp LCLK    &mkp RCLK  &kp LEFT_ARROW  &kp DOWN             &kp RIGHT  &trans  &trans
+&trans  &trans  &trans  &none   &trans  &trans       &none      &trans          &kp LS(PRINTSCREEN)  &trans     &trans  &trans
                         &trans  &trans  &trans       &trans     &trans
                                 &trans  &trans       &trans
             >;
